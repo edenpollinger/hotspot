@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Workspace Pro - Modern Booking</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "primary": "#2b8cee",
+                "background-light": "#f6f7f8",
+                "background-dark": "#101922",
+              },
+              fontFamily: {
+                "display": ["Inter", "sans-serif"]
+              },
+              borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+            },
+          },
+        }
+    </script>
+<style>
+        .mac-shadow { box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03); }
+        .glass { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(10px); }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100">
+<div class="flex h-screen overflow-hidden">
+<!-- Sidebar -->
+<aside class="w-64 flex flex-col border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-background-dark/50">
+<div class="p-6 flex items-center gap-3">
+<div class="bg-primary size-8 rounded-lg flex items-center justify-center text-white">
+<span class="material-symbols-outlined">meeting_room</span>
+</div>
+<h1 class="text-lg font-bold tracking-tight">WorkSpace Pro</h1>
+</div>
+<nav class="flex-1 px-4 space-y-2 mt-4">
+<div class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-primary/10 text-primary">
+<span class="material-symbols-outlined text-[22px] fill-[1]">home</span>
+<span class="text-sm font-semibold">Home</span>
+</div>
+<div class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 transition-colors">
+<span class="material-symbols-outlined text-[22px]">calendar_today</span>
+<span class="text-sm font-medium">My Bookings</span>
+</div>
+<div class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 transition-colors">
+<span class="material-symbols-outlined text-[22px]">favorite</span>
+<span class="text-sm font-medium">Favorites</span>
+</div>
+<div class="pt-4 pb-2 px-3">
+<p class="text-[10px] uppercase font-bold tracking-wider text-slate-400">Settings</p>
+</div>
+<div class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 transition-colors">
+<span class="material-symbols-outlined text-[22px]">notifications</span>
+<span class="text-sm font-medium">Notifications</span>
+</div>
+<div class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 transition-colors">
+<span class="material-symbols-outlined text-[22px]">settings</span>
+<span class="text-sm font-medium">Account</span>
+</div>
+</nav>
+<div class="p-4 border-t border-slate-200 dark:border-slate-800">
+<div class="flex items-center gap-3 p-2 bg-slate-50 dark:bg-slate-800/50 rounded-xl">
+<div class="size-9 rounded-full bg-primary/20 flex items-center justify-center text-primary overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="User profile avatar photo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCAuWq3WBys0wQKA3RsNmlIhNugZrqkJmq0s8n-B9jP8lZdUVOpGihxLDx4wuBBS1RKHZeLT7XUsCdMdj3PJmNI42fKExoAMxIEaYCWmWzpbhV-0nt_fXGS09gg8r3o4lrlTcWnmZ3Gk9tehPkb2dV-3vBpVn_aYhSZeC2A29s3R4oMa_tjZ2b2xwqJHFHbvgCFHdSWfV-vkjg9HtRylBBepus4PcxkThbERROv9aGzNTh6ftDE8oN7jwJcnLNitTEW8GSZPJgaSmSR"/>
+</div>
+<div class="flex-1 min-w-0">
+<p class="text-sm font-semibold truncate">Alex Rivera</p>
+<p class="text-xs text-slate-500 truncate">Premium Plan</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col overflow-y-auto">
+<!-- Header / Search -->
+<header class="sticky top-0 z-10 glass border-b border-slate-200 dark:border-slate-800 px-8 py-4">
+<div class="flex items-center gap-6">
+<div class="relative flex-1">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-slate-100 dark:bg-slate-800 border-none rounded-xl text-sm focus:ring-2 focus:ring-primary/20 transition-all" placeholder="Search for meeting rooms, desks, or amenities..." type="text"/>
+</div>
+<div class="flex items-center gap-3">
+<button class="bg-white dark:bg-slate-800 p-2 rounded-lg border border-slate-200 dark:border-slate-800 mac-shadow">
+<span class="material-symbols-outlined text-slate-600 dark:text-slate-400">tune</span>
+</button>
+<button class="bg-primary text-white px-4 py-2 rounded-lg font-semibold text-sm mac-shadow">
+                        Book Space
+                    </button>
+</div>
+</div>
+<!-- Filters -->
+<div class="flex items-center gap-2 mt-4 overflow-x-auto no-scrollbar">
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-medium whitespace-nowrap">
+<span class="material-symbols-outlined text-sm">calendar_month</span> Today, Oct 24
+                </button>
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-medium whitespace-nowrap">
+<span class="material-symbols-outlined text-sm">schedule</span> 09:00 - 11:00
+                </button>
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-medium whitespace-nowrap">
+<span class="material-symbols-outlined text-sm">laptop_mac</span> Meeting Room
+                </button>
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-medium whitespace-nowrap text-primary">
+<span class="material-symbols-outlined text-sm">groups</span> 4-6 People
+                </button>
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-medium whitespace-nowrap">
+<span class="material-symbols-outlined text-sm">videocam</span> VC Ready
+                </button>
+</div>
+</header>
+<div class="p-8 space-y-8">
+<!-- Map Visualization -->
+<section>
+<div class="flex items-center justify-between mb-4">
+<h2 class="text-xl font-bold">Interactive Floor Map</h2>
+<div class="flex items-center gap-4 text-xs font-medium">
+<div class="flex items-center gap-1.5">
+<span class="size-2.5 rounded-full bg-emerald-500"></span> Available
+                        </div>
+<div class="flex items-center gap-1.5">
+<span class="size-2.5 rounded-full bg-rose-500"></span> Occupied
+                        </div>
+<div class="flex items-center gap-1.5">
+<span class="size-2.5 rounded-full bg-amber-500"></span> Reserved
+                        </div>
+</div>
+</div>
+<div class="relative w-full aspect-[21/9] bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-8 overflow-hidden group shadow-sm">
+<div class="absolute inset-0 opacity-10 dark:opacity-20 pointer-events-none" style="background-image: radial-gradient(#2b8cee 1px, transparent 1px); background-size: 24px 24px;"></div>
+<div class="relative w-full h-full border-2 border-dashed border-slate-200 dark:border-slate-700 rounded-xl flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Office floor plan schematic map" data-location="Office Floor 4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9_PNOK7ymhoJb-96WOvnhVKe6ALvpvap6ftvnW6YLaUNsQ0I1g8gBPBRRSpeZzuYqUVb-FqGg-RTLrGbP08yOZIekrO-alsjgI7oycG4XqSYi9AejG9AbtjFMD2ug6ZOsb8J2g1ASx-IhU-dh3CBZ-0Rtn6Z80XmxzReKhkd_nNsaaHbXRR_UIPa1VB_CSmcBYgoxVXKZ7bE3ikGyVEYLl7ZaGg7llhrQC84TI4ZqCI9QvUv1SfovhqSquUWPSnHo8dFiGxrvWe1u"/>
+<!-- Interactive Pins -->
+<div class="absolute top-1/4 left-1/3 group/pin cursor-pointer">
+<div class="size-10 bg-emerald-500 border-4 border-white dark:border-slate-900 rounded-full mac-shadow flex items-center justify-center text-white transform hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-lg">chair</span>
+</div>
+<div class="absolute -top-12 left-1/2 -translate-x-1/2 bg-slate-900 text-white text-[10px] px-2 py-1 rounded opacity-0 group-hover/pin:opacity-100 whitespace-nowrap transition-opacity">
+                                Desk 42 - Available
+                            </div>
+</div>
+<div class="absolute bottom-1/3 left-1/2 group/pin cursor-pointer">
+<div class="size-12 bg-rose-500 border-4 border-white dark:border-slate-900 rounded-full mac-shadow flex items-center justify-center text-white transform hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-xl">groups</span>
+</div>
+<div class="absolute -top-12 left-1/2 -translate-x-1/2 bg-slate-900 text-white text-[10px] px-2 py-1 rounded opacity-0 group-hover/pin:opacity-100 whitespace-nowrap transition-opacity">
+                                Boardroom - Occupied
+                            </div>
+</div>
+<div class="absolute top-1/2 right-1/4 group/pin cursor-pointer">
+<div class="size-10 bg-emerald-500 border-4 border-white dark:border-slate-900 rounded-full mac-shadow flex items-center justify-center text-white transform hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-lg">meeting_room</span>
+</div>
+<div class="absolute -top-12 left-1/2 -translate-x-1/2 bg-slate-900 text-white text-[10px] px-2 py-1 rounded opacity-0 group-hover/pin:opacity-100 whitespace-nowrap transition-opacity">
+                                Pod B - Available
+                            </div>
+</div>
+</div>
+<div class="absolute bottom-6 right-6 flex flex-col gap-2">
+<button class="size-8 bg-white dark:bg-slate-800 rounded-full mac-shadow flex items-center justify-center text-slate-600 dark:text-slate-400">
+<span class="material-symbols-outlined text-sm">add</span>
+</button>
+<button class="size-8 bg-white dark:bg-slate-800 rounded-full mac-shadow flex items-center justify-center text-slate-600 dark:text-slate-400">
+<span class="material-symbols-outlined text-sm">remove</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Recommended Spaces -->
+<section>
+<div class="flex items-center justify-between mb-6">
+<h2 class="text-xl font-bold">Recommended for You</h2>
+<a class="text-sm font-semibold text-primary hover:underline" href="#">View All</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Space Card 1 -->
+<div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden mac-shadow hover:translate-y-[-4px] transition-all group">
+<div class="relative h-48">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Modern glass-walled conference room" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAose1KQmG9-G27ksneYC0IujgwUt54jjoRZMjT4lNsxUo-HvJr-YRAs36DiuZwYj9wJjEmP8nOiVPn2wYabvXc-ahniJyr1IhLSvQyXo0SVtpbHeNj52grxi_F-8cDkIjcrBfHeKJhsZssCvQxn7q__pGd28UKaDEWTBDjtOjeGZptiQyczcNHKtSFKYDN5UaLQ3o4uYrCrCBX7s-42eFhnL-HbFXNyzPSp6KhCAaxxOWQYcRs9tsmra5qSWPo8HNVkJ86mIihJEgS"/>
+<div class="absolute top-3 right-3 bg-emerald-500 text-white text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider">
+                                Available Now
+                            </div>
+</div>
+<div class="p-5">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h3 class="font-bold text-lg">Skyline Boardroom</h3>
+<p class="text-xs text-slate-500">Floor 12 • East Wing</p>
+</div>
+<span class="material-symbols-outlined text-slate-300 hover:text-rose-500 cursor-pointer transition-colors">favorite</span>
+</div>
+<div class="flex items-center gap-3 my-4">
+<div class="flex items-center gap-1 text-slate-600 dark:text-slate-400">
+<span class="material-symbols-outlined text-lg">groups</span>
+<span class="text-xs">12</span>
+</div>
+<div class="flex items-center gap-1 text-slate-600 dark:text-slate-400">
+<span class="material-symbols-outlined text-lg">videocam</span>
+<span class="text-xs">VC</span>
+</div>
+<div class="flex items-center gap-1 text-slate-600 dark:text-slate-400">
+<span class="material-symbols-outlined text-lg">wifi</span>
+<span class="text-xs">High Speed</span>
+</div>
+</div>
+<button class="w-full bg-primary/10 hover:bg-primary text-primary hover:text-white py-2.5 rounded-xl text-sm font-bold transition-all">
+                                Book Now
+                            </button>
+</div>
+</div>
+<!-- Space Card 2 -->
+<div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden mac-shadow hover:translate-y-[-4px] transition-all group">
+<div class="relative h-48">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Quiet individual coworking desk space" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmO1wxiO7_Vlk7lb8CDXjJVH-MKR1-bQ-BAV4PQ1pAwG09v_N42enfBXUfILLo9tmaGIb_nOzUiU0OU-T0juOhB1c_KvW3Yr0QfJIvYALRkcUL7j99cNVOzzW2KjZZ3_ppE9SLqX2zoko4zw2vs4QApJ19mXTdIvUJu-L3JkZpvXjsb4dY0hT-7tU-IK8D-60qaSVjm3S_a3RnJuPCfboKcbfFntv_MZ7N-DcEXho6eU5EwE-9H_za5fUBtMfLNrPwRcRSlxMAHD8z"/>
+<div class="absolute top-3 right-3 bg-amber-500 text-white text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider">
+                                Filling Fast
+                            </div>
+</div>
+<div class="p-5">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h3 class="font-bold text-lg">Zen Zone Desk 18</h3>
+<p class="text-xs text-slate-500">Floor 4 • Quiet Area</p>
+</div>
+<span class="material-symbols-outlined text-slate-300 hover:text-rose-500 cursor-pointer transition-colors">favorite</span>
+</div>
+<div class="flex items-center gap-3 my-4">
+<div class="flex items-center gap-1 text-slate-600 dark:text-slate-400">
+<span class="material-symbols-outlined text-lg">person</span>
+<span class="text-xs">1</span>
+</div>
+<div class="flex items-center gap-1 text-slate-600 dark:text-slate-400">
+<span class="material-symbols-outlined text-lg">power</span>
+<span class="text-xs">Dual Plug</span>
+</div>
+</div>
+<button class="w-full bg-primary/10 hover:bg-primary text-primary hover:text-white py-2.5 rounded-xl text-sm font-bold transition-all">
+                                Book Now
+                            </button>
+</div>
+</div>
+<!-- Space Card 3 -->
+<div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden mac-shadow hover:translate-y-[-4px] transition-all group">
+<div class="relative h-48">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Casual focus pod with acoustic walls" src="https://lh3.googleusercontent.com/aida-public/AB6AXuANEQ8VA6OizNJ-Pk7F75N3bmJ9vFyuGPKawcimkDe_wFFVSMbNGE3WPZ1r0B5XRTDYZdUwVVf-joaiSD4HjD_Y78LFCByUqK44okDbMLyrb8t0TDVfQDdgxxEQn1Xow8_kpvjQWefeBJjBlHpxTuUgs5sU87w6CadRSX7hQqdhy-iqJ_e2imPI7FShhU3scmbbNDVkz0lkdhovpiTt9Gyy8p7IQdqMt1uRFhF4uX0-zg78E0IzoQ4-O_jKKTv_VIcs1iVGhxMY96aV"/>
+<div class="absolute top-3 right-3 bg-emerald-500 text-white text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider">
+                                Available Now
+                            </div>
+</div>
+<div class="p-5">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h3 class="font-bold text-lg">Focus Pod Alpha</h3>
+<p class="text-xs text-slate-500">Floor 6 • Central Hub</p>
+</div>
+<span class="material-symbols-outlined text-rose-500 fill-[1] cursor-pointer">favorite</span>
+</div>
+<div class="flex items-center gap-3 my-4">
+<div class="flex items-center gap-1 text-slate-600 dark:text-slate-400">
+<span class="material-symbols-outlined text-lg">groups</span>
+<span class="text-xs">2-3</span>
+</div>
+<div class="flex items-center gap-1 text-slate-600 dark:text-slate-400">
+<span class="material-symbols-outlined text-lg">draw</span>
+<span class="text-xs">Whiteboard</span>
+</div>
+</div>
+<button class="w-full bg-primary/10 hover:bg-primary text-primary hover:text-white py-2.5 rounded-xl text-sm font-bold transition-all">
+                                Book Now
+                            </button>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Right Sidebar / Schedule -->
+<aside class="w-80 flex flex-col border-l border-slate-200 dark:border-slate-800 bg-white dark:bg-background-dark/50 p-6 overflow-y-auto">
+<h2 class="text-lg font-bold mb-6">My Schedule</h2>
+<div class="space-y-6">
+<div class="relative pl-4 border-l-2 border-primary">
+<p class="text-[10px] font-bold text-primary uppercase tracking-wider mb-1">Coming Up Next</p>
+<div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-800">
+<h4 class="font-bold text-sm">Product Sync Meeting</h4>
+<p class="text-xs text-slate-500 mt-1">10:30 AM - 11:30 AM</p>
+<div class="flex items-center gap-2 mt-3">
+<span class="material-symbols-outlined text-xs text-primary">location_on</span>
+<span class="text-[11px] font-medium">Conference Room C4</span>
+</div>
+</div>
+</div>
+<div class="relative pl-4 border-l-2 border-slate-200 dark:border-slate-700">
+<p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">Today Afternoon</p>
+<div class="p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800">
+<h4 class="font-bold text-sm">Focused Work Session</h4>
+<p class="text-xs text-slate-500 mt-1">2:00 PM - 5:00 PM</p>
+<div class="flex items-center gap-2 mt-3">
+<span class="material-symbols-outlined text-xs text-slate-400">location_on</span>
+<span class="text-[11px] font-medium text-slate-600">Zen Desk 18</span>
+</div>
+</div>
+</div>
+<div class="pt-4">
+<div class="bg-primary/5 rounded-2xl p-5 border border-primary/10">
+<div class="flex items-center gap-3 mb-3">
+<div class="bg-primary/20 size-8 rounded-full flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-lg">info</span>
+</div>
+<h4 class="font-bold text-sm">Booking Tip</h4>
+</div>
+<p class="text-xs text-slate-600 leading-relaxed">
+                        Rooms on floor 12 have the best natural light between 2 PM and 4 PM today.
+                    </p>
+<button class="mt-3 text-[11px] font-bold text-primary hover:underline">See floor 12 →</button>
+</div>
+</div>
+</div>
+<div class="mt-auto pt-8">
+<div class="p-4 rounded-2xl bg-gradient-to-br from-primary to-indigo-600 text-white shadow-lg">
+<h4 class="font-bold text-sm mb-2">Host a meeting?</h4>
+<p class="text-[11px] opacity-80 mb-4 leading-normal">Invite external guests and pre-order catering directly from the app.</p>
+<button class="w-full bg-white/20 hover:bg-white/30 py-2 rounded-lg text-xs font-bold transition-colors">Manage Guests</button>
+</div>
+</div>
+</aside>
+</div>
+</body></html>
